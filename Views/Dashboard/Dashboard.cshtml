@@ -1,0 +1,77 @@
+@{
+    ViewData["Title"] = "Walkable Cit Index";
+}
+
+<div class="container">
+    <h1>Walkable City Index</h1>
+    
+    <div class="left_dashboard">
+        <form asp-controller="Dashboard" asp-action="SelectCity" method="post">
+            <div class='pair'>
+                <p>City: </p>
+                <input type="text" name="city" required autofocus />
+            </div>
+
+            <div class='pair'>
+                <p>State (Two Character Abbreviation):</p>
+                <input type="text" name="state" required pattern=".{2,2}"/>
+            </div>
+
+            <div class='pair'>
+                <p>Place: </p>
+                <select name='attraction_name'>
+                    <option value="bar">Bar</option>
+                    <option value="bicycle_store">Bicycle Store</option>
+                    <option value="cafe">Cafe</option>
+                    <option value="convenience_store">Convenience Store</option>
+                    <option value="park">Park</option>
+                    <option value="restaurant">Restaurant</option>
+                    <option value="starbucks">Starbucks</option>
+                </select>
+            </div>
+
+            <button type="submit">Select</button>
+            <br><br>            
+
+        </form>
+    </div>
+    
+    <div class="right_dashboard">
+        <a href="/current_rankings">Current Rankings</a>
+    </div>
+
+    @{
+        if(@ViewBag.Error != "") {
+            <p class="error">@ViewBag.Error</p>
+        }
+    }
+
+    @{
+        if (@ViewBag.City != null) {
+            <h3>@ViewBag.City, @ViewBag.State - @ViewBag.AttractionName</h3>
+            <table>
+                <thead>
+                    <tr>
+                    <th>Name</th> 
+                    <th>Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach(var attraction in ViewBag.Attractions) {
+                            <tr>
+                                <td>@attraction.Name</td>
+                                <td>@attraction.Vicinity</td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+        }
+        
+    }
+
+    <!-- <p>@ViewBag.Latitude</p>
+    <p>@ViewBag.Longitude</p> -->
+</div>

@@ -1,0 +1,160 @@
+/*CSS reset settings here*/
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#container{
+    height: 1215px;
+    width: 1400px;
+    background-color: White;
+    margin: 0px auto;
+    margin-top: 15px;
+    margin-left: 15px; 
+}
+
+.nav {
+    display: inline-block;
+}
+
+.nav  a {
+    display: inline-block;
+    margin-left: 30px;
+    /* font-size: large; */
+}
+
+.messages p {
+    color: red;
+}
+
+.success p {
+    color: blue;
+}
+
+.left_dashboard {
+    width: 450px;
+    height: 200px;
+    /* margin-bottom: 10px; */
+    display: inline-block;
+    vertical-align: top;
+}
+
+.right_dashboard {
+    width: 200px;
+    height: 200px;
+    /* margin-bottom: 10px; */
+    margin-top: 20px;
+    margin-left: 25px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.new_activity {
+    width: 650px;
+    height: 450px;
+    margin-bottom: 10px;
+    /* display: inline-block; */
+    vertical-align: top;
+}
+
+.add_activity button {
+    margin-top: 225px;
+}
+
+.new_activity {
+    margin-bottom: 10px;
+    /* display: inline-block; */
+    vertical-align: top;
+}
+
+.pair {
+    /* width: 300px; */
+    height: 25px;
+    margin-top: 15px;
+}
+
+.pair p {
+    width: 250px;
+    display:inline-block;
+    text-align: left;
+    padding-right: 5px;
+  }
+
+.pair p.error {
+    width: 200px;
+    color: red;
+    display:inline-block;
+    text-align: left;
+    padding-right: 5px;
+}
+
+.pair label {
+  /* width: 100px; */
+  display:inline-block;
+  text-align: left;
+  padding-right: 5px;
+}
+
+button {
+    margin-top: 15px;
+}
+
+th {
+    text-align: center;
+    padding: 5px;
+/*    border-left: 1px;
+    background-color: #cc66ff;*/
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+    border: 1px solid black;
+    /*background-color: #cc66ff;*/
+}
+
+tr {
+    text-align: center;
+    border: 1px solid black;
+    /*background-color: #cc66ff;*/
+}
+
+.error {
+    color: red;
+}
+
+span {
+    color: red;
+}
+
+.current_rankings_div {
+    display: inline-block;
+}
+
+.current_rankings_div table {
+    display: inline-block;
+}
+
+.specific {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: top;
+}
+
+.specific a {
+    display: block;
+}
+
+.specific_left {
+    width: 600px;
+    height: 700px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.specific_right {
+    width: 300px;
+    height: 700px;
+    display: inline-block;
+    vertical-align: top;
+}

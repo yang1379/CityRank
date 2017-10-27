@@ -1,0 +1,72 @@
+@{
+    ViewData["Title"] = "Show All Cities";
+}
+
+<div class="container">
+    <h1>@ViewBag.AttractionName</h1>
+    <a href="/">Home</a>
+    <span>&#8226;</span>
+    <a href="/current_rankings">Current Rankings</a>
+    <br>
+
+        <table>
+            <thead>
+                <tr>
+                <th>City</th> 
+                <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach(var city in ViewBag.Parks) {
+                        <tr>
+                            <td><a href="/city_attraction/park/@city.Id">@city.Name, @city.State</a></td>
+                            <td>@city.Parks.Count</td>
+                        </tr>
+                    }
+
+                    foreach(var city in ViewBag.Bars) {
+                        <tr>
+                            <td><a href="/city_attraction/bar/@city.Id">@city.Name, @city.State</a></td>
+                            <td>@city.Bars.Count</td>
+                        </tr>
+                    }
+
+                    foreach(var city in ViewBag.BicycleStores) {
+                        <tr>
+                            <td><a href="/city_attraction/bicycle_store/@city.Id">@city.Name, @city.State</a></td>
+                            <td>@city.BicycleStores.Count</td>
+                        </tr>
+                    }
+
+                    foreach(var city in ViewBag.Cafes) {
+                        <tr>
+                            <td><a href="/city_attraction/cafe/@city.Id">@city.Name, @city.State</a></td>
+                            <td>@city.Cafes.Count</td>
+                        </tr>
+                    }
+
+                    foreach(var city in ViewBag.ConvenienceStores) {
+                        <tr>
+                            <td><a href="/city_attraction/convenience_store/@city.Id">@city.Name, @city.State</a></td>
+                            <td>@city.ConvenienceStores.Count</td>
+                        </tr>
+                    }
+
+                    foreach(var city in ViewBag.Starbucks) {
+                        <tr>
+                            <td><a href="/city_attraction/starbucks/@city.Id">@city.Name, @city.State</a></td>
+                            <td>@city.Starbucks.Count</td>
+                        </tr>
+                    }
+
+
+                }
+
+
+
+            </tbody>
+        </table>
+
+
+</div>

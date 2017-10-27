@@ -1,0 +1,262 @@
+@{
+    ViewData["Title"] = "Current Rankings";
+}
+
+<div class="container">
+    <h1>Current Rankings</h1>
+    <a href="/">Home</a>
+    <span>&#8226;</span>
+    <a href="/current_rankings">Current Rankings</a>
+    <br>
+    <div class="current_rankings_div">
+
+        <div class="specific">
+            <h3>Parks</h3>
+            <table>
+                <thead>
+                    <tr>
+                    <th>City</th> 
+                    <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int parkCount = 0;
+                        foreach(var city in ViewBag.Parks) {
+                            if(parkCount > 9) {
+                                break;
+                            }
+                            parkCount++;
+                            <tr>
+                                <td><a href="/city_attraction/park/@city.Id">@city.Name, @city.State</a></td>
+                                <td>@city.Parks.Count</td>
+                            </tr>
+                        }
+                    }
+
+
+                </tbody>
+            </table>
+
+            @{
+                if(parkCount > 9) {
+                    <a href="/show_all_cities/park">Show All Cities</a>
+                }
+            }
+
+        </div>
+
+        <div class="specific">
+            <h3>Bars</h3>
+            <table>
+                <thead>
+                    <tr>
+                    <th>City</th> 
+                    <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int barCount = 0;
+                        foreach(var bar in ViewBag.Bars) {
+                            if(barCount > 9) {
+                                break;
+                            }
+                            barCount++;
+                            <tr>
+                                <td><a href="/city_attraction/bar/@bar.Id">@bar.Name, @bar.State</a></td>
+                                <td>@bar.Bars.Count</td>
+                            </tr>
+                        }
+                    }
+
+
+                </tbody>
+            </table>
+
+            @{
+                if(barCount > 9) {
+                    <a href="/show_all_cities/bar">Show All Cities</a>
+                }
+            }
+
+        </div>
+
+
+        <div class="specific">
+            <h3>Bicycle Stores</h3>
+            <table>
+                <thead>
+                    <tr>
+                    <th>City</th> 
+                    <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int bicycleStoreCount = 0;
+                        foreach(var city in ViewBag.BicycleStores) {
+                            if(bicycleStoreCount > 9) {
+                                break;
+                            }
+                            bicycleStoreCount++;
+                            <tr>
+                                <td><a href="/city_attraction/bicycle_store/@city.Id">@city.Name, @city.State</a></td>
+                                <td>@city.BicycleStores.Count</td>
+                            </tr>
+                        }
+                    }
+
+                </tbody>
+            </table>
+
+            @{
+                if(bicycleStoreCount > 9) {
+                    <a href="/show_all_cities/bicycle_store">Show All Cities</a>
+                }
+            }
+
+        </div>
+
+
+        <div class="specific">
+            <h3>Cafes</h3>
+            <table>
+                <thead>
+                    <tr>
+                    <th>City</th> 
+                    <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int cafeCount = 0;
+                        foreach(var cafe in ViewBag.Cafes) {
+                            if(cafeCount > 9) {
+                                break;
+                            }
+                            cafeCount++;
+                            <tr>
+                                <td><a href="/city_attraction/cafe/@cafe.Id">@cafe.Name, @cafe.State</a></td>
+                                <td>@cafe.Cafes.Count</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+            @{
+                if(cafeCount > 9) {
+                    <a href="/show_all_cities/cafe">Show All Cities</a>
+                }
+            }
+
+        </div>
+
+        <div class="specific">
+            <h3>Convenience Stores</h3>
+            <table>
+                <thead>
+                    <tr>
+                    <th>City</th> 
+                    <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int convenienceStoreCount = 0;
+                        foreach(var convenienceStore in ViewBag.ConvenienceStores) {
+                            if(convenienceStoreCount > 9) {
+                                break;
+                            }
+                            convenienceStoreCount++;
+                            <tr>
+                                <td><a href="/city_attraction/convenience_store/@convenienceStore.Id">@convenienceStore.Name, @convenienceStore.State</a></td>
+                                <td>@convenienceStore.ConvenienceStores.Count</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+            @{
+                if(convenienceStoreCount > 9) {
+                    <a href="/show_all_cities/convenience_store">Show All Cities</a>
+                }
+            }
+
+        </div>
+
+        <div class="specific">
+            <h3>Restaurants</h3>
+            <table>
+                <thead>
+                    <tr>
+                    <th>City</th> 
+                    <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int restaurantCount = 0;
+                        foreach(var restaurant in ViewBag.Restaurants) {
+                            if(restaurantCount > 9) {
+                                break;
+                            }
+                            restaurantCount++;
+                            <tr>
+                                <td><a href="/city_attraction/restaurant/@restaurant.Id">@restaurant.Name, @restaurant.State</a></td>
+                                <td>@restaurant.Restaurants.Count</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+            @{
+                if(restaurantCount > 9) {
+                    <a href="/show_all_cities/restaurant">Show All Cities</a>
+                }
+            }
+
+        </div>
+
+        <div class="specific">
+            <h3>Starbucks</h3>
+            <table>
+                <thead>
+                    <tr>
+                    <th>City</th> 
+                    <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        int starbuckCount = 0;
+                        foreach(var starbuck in ViewBag.Starbucks) {
+                            if(starbuckCount > 9) {
+                                break;
+                            }
+                            starbuckCount++;
+                            <tr>
+                                <td><a href="/city_attraction/starbucks/@starbuck.Id">@starbuck.Name, @starbuck.State</a></td>
+                                <td>@starbuck.Starbucks.Count</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+            @{
+                if(starbuckCount > 9) {
+                    <a href="/show_all_cities/starbucks">Show All Cities</a>
+                }
+            }
+
+        </div>
+
+
+    </div>
+
+
+</div>

@@ -1,0 +1,75 @@
+@{
+    ViewData["Title"] = "Specific City Attraction";
+}
+
+
+<div class="container">
+    <h1>@ViewBag.City.Name, @ViewBag.City.State - @ViewBag.AttractionName</h1>
+    <a href="/">Home</a>
+    <span>&#8226;</span>
+    <a href="/current_rankings">Current Rankings</a>
+    <br>
+
+    <div class="specific">
+        <div class="specific_left">
+            @{
+                if (@ViewBag.City != null) {
+                    <table>
+                        <thead>
+                            <tr>
+                            <th>Name</th> 
+                            <th>Address</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach(var attraction in ViewBag.Attractions) {
+                                    <tr>
+                                        <td>@attraction.Name</td>
+                                        <td>@attraction.Vicinity</td>
+                                    </tr>
+                                }
+                            }
+
+                        </tbody>
+                    </table>
+                }
+                
+            }
+        </div>
+
+        <div class="specific_right">
+            <div id="dvMap" style="width: 400px; height: 400px">
+            </div>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA39mWtMB2yIcbmoJix0p2fqxA20ZTOw3k"></script>
+            <script type="text/javascript">
+                var markers = @Html.Raw(ViewBag.Markers);
+                window.onload = function () {
+                    var mapOptions = {
+                        center: new google.maps.LatLng(markers[0].lat, markers[0].lng),
+                        zoom: 12,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                    var infoWindow = new google.maps.InfoWindow();
+                    var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+                    for (i = 0; i < markers.length; i++) {
+                        var data = markers[i]
+                        var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+                        var marker = new google.maps.Marker({
+                            position: myLatlng,
+                            map: map,
+                            title: data.title
+                        });
+                        (function (marker, data) {
+                            google.maps.event.addListener(marker, "click", function (e) {
+                                infoWindow.setContent(data.description);
+                                infoWindow.open(map, marker);
+                            });
+                        })(marker, data);
+                    }
+                }
+            </script>
+        </div>
+    </div>
+
+</div>
